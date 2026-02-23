@@ -6,14 +6,32 @@ SECRET_KEY = 'django-insecure-py$g&ilk+5#+b$#-ev!$v1wj9$mf^_fp#r8m(hnfadjxcl=vcu
 
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    "hrms-lite-backend-2-44b2.onrender.com",
-    ".onrender.com",
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"
+    "hrms-lite-backend.onrender.com",
+    # ".onrender.com",
 ]
 
+from django.urls import path, include
+
+# from django.contrib import admin
+# from django.urls import path, include
+
+# urlpatterns = [
+#     path("admin/", admin.site.urls),
+#     path("api/", include("employees.urls")),
+# ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ]
+}
+
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.onrender.com",
-    "https://*.vercel.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    # "https://*.onrender.com",
+    # "https://*.vercel.app",
 ]
 
 INSTALLED_APPS = [
@@ -41,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'hrms.urls'
+
+MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 TEMPLATES = [
     {
@@ -72,6 +92,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
