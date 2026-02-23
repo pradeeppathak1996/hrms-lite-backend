@@ -7,11 +7,13 @@ SECRET_KEY = 'django-insecure-py$g&ilk+5#+b$#-ev!$v1wj9$mf^_fp#r8m(hnfadjxcl=vcu
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    "hrms-lite-backend-2-44b2.onrender.com",
     ".onrender.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
+    "https://*.vercel.app",
 ]
 
 INSTALLED_APPS = [
@@ -21,10 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
     'corsheaders',
-
     'employees',
     'attendance',
 ]
