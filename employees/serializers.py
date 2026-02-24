@@ -8,7 +8,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def validate(self, data):
-        #  IMPORTANT: run only on CREATE / UPDATE
         request = self.context.get("request")
         if request and request.method in ["POST", "PUT", "PATCH"]:
             required_fields = ['employee_id', 'full_name', 'email', 'department']
