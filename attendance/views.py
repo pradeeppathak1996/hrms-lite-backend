@@ -68,16 +68,19 @@ class EmployeePresentSummaryView(APIView):
 
         return Response(summary)
 
+from django.utils import timezone
+
 class DashboardSummaryView(APIView):
     def get(self, request):
-        total_employees = Employee.objects.count()
-        total_attendance = Attendance.objects.count()
-        total_present = Attendance.objects.filter(status="Present").count()
-        total_absent = Attendance.objects.filter(status="Absent").count()
+        today = timezone.localdate()
+
+        total = Attendance.objects.count()
+        present = Attendance.objects.filter(status="Present").count()
+        absent = Attendance.objects.filter(status="Absent").count()
 
         return Response({
-            "total_employees": total_employees,
-            "total_attendance": total_attendance,
-            "total_present": total_present,
-            "total_absent": total_absent,
+            "total_records": total,
+            "present": present,
+            "absent": absent,
+            "date": str(today)
         })
