@@ -6,8 +6,11 @@ class Attendance(models.Model):
         ('Present', 'Present'),
         ('Absent', 'Absent'),
     )
-
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ForeignKey(
+    Employee,
+    on_delete=models.CASCADE,
+    related_name="attendances"
+)
     date = models.DateField()
     status = models.CharField(max_length=10, choices=STATUS_CHOICES)
 
