@@ -8,11 +8,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
-# ["127.0.0.1", "localhost"
-#     "hrms-lite-backend.onrender.com",
-    # ".onrender.com",
-# ]
-
 from django.urls import path, include
 
 REST_FRAMEWORK = {
@@ -84,7 +79,7 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 CORS_ALLOW_ALL_ORIGINS = True
