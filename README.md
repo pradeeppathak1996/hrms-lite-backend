@@ -1,24 +1,49 @@
+# HRMS Lite – Full Stack Application
+
+## Frontend Repository
+https://github.com/pradeeppathak1996/hrms-lite-frontend
+
+## Backend Repository
+https://github.com/pradeeppathak1996/hrms-lite-backend
+
+---
+
+## Live Application (Production)
+
+**Frontend (Vercel):**  
+https://hrms-lite-frontend-j4rc.vercel.app
+
+**Backend API (Render):**  
+https://hrms-lite-backend-1-qd60.onrender.com
+
+> Note: The backend is an API-only Django application.  
+> The root URL (`/`) does not serve a webpage and may show **Not Found**.  
+> All functionality is exposed via API endpoints under `/api/`.
+
+---
+
 ## Project Overview
 
-The HRMS Lite system allows an admin to:
+**HRMS Lite** is a lightweight Human Resource Management System built to manage employees and their attendance with a strong focus on **data correctness, validation, and production stability**.
 
-- Manage employee records (Add, View, Delete)
-- Mark and track daily attendance
-- View attendance history per employee
-- See attendance analytics and summaries
-- Access a dashboard with key HR metrics
+The project demonstrates a complete **end-to-end full-stack workflow**, covering frontend UI, REST APIs, and database persistence.
 
-The focus of this project is **stability, correctness, and real-world usability**, not unnecessary features.
+### Key Capabilities
+- Employee management (Add, View, Delete)
+- Daily attendance tracking
+- Employee-wise attendance history
+- Attendance summaries and analytics
+- Central dashboard with key HR metrics
 
 ---
 
 ## Tech Stack
 
 ### Frontend
-- React (Create React App)
+- React
 - React Router
 - Axios
-- CSS (Custom styling)
+- Custom CSS
 
 ### Backend
 - Python
@@ -26,93 +51,89 @@ The focus of this project is **stability, correctness, and real-world usability*
 - Django REST Framework
 
 ### Database
-- SQLite (Local & Assignment Scope)
+- SQLite (used for assignment and demo scope)
 
 ### Deployment
-- **Frontend:** Vercel
-- **Backend:** Render
+- Frontend: Vercel
+- Backend: Render
 
 ---
 
-## ✨ Features Implemented
+## Features Implemented
 
-### 👨‍💼 Employee Management
+### Employee Management
 - Add new employees
 - View employee list
 - Delete employees
-- Server-side validations:
-  - Required fields
-  - Valid email format
-  - Duplicate employee handling
-  - Name & department character validation
+
+#### Employee Data Requirements
+To add an employee, the following data is required:
+- **Employee ID**: Must contain both letters and numbers (e.g. `EMP001`)
+- **Full Name**: Alphabetic characters only
+- **Email**: Must be a valid email format
+- **Department**: Alphabetic characters only
+
+Validations are enforced on both frontend and backend to ensure data consistency.
 
 ---
 
-### 🕒 Attendance Management
+### Attendance Management
 - Mark attendance for employees
 - Attendance status: **Present / Absent**
-- Attendance restricted to **current local date only**
-- Prevention of invalid date selection (timezone-safe)
+- Attendance allowed only for the **current local date**
+- Future or invalid dates are restricted
 - View all attendance records
-- View attendance records **per employee**
+- View attendance history per employee
 
 ---
 
-### 📊 Dashboard Summary
-- Total Employees
-- Total Attendance Records
-- Total Present
-- Total Absent
-- Clean card-based UI
+### Dashboard Summary
+- Total employees
+- Total attendance records
+- Total present count
+- Total absent count
+- Clean, card-based dashboard UI
 
 ---
 
-## 🎁 Bonus Features (Implemented)
-
-✅ Filter attendance records by date  
-✅ Display total present days per employee  
-✅ Attendance analytics per employee  
-✅ Dashboard summary with counts  
-
----
-
-##  Data Validation & Error Handling
+## Data Validation & Error Handling
 
 ### Backend Validations
 - Required field validation
 - Email format validation
 - Duplicate employee prevention
-- Attendance date validation using timezone-aware logic
-- Meaningful error messages with proper HTTP status codes
+- Attendance date validation
+- Proper HTTP status codes with meaningful error messages
 
 ### Timezone Handling
-- Frontend uses browser local time (IST safe)
+- Frontend uses browser local time
 - Backend uses Django `timezone.localdate()`
-- Prevents UTC vs IST midnight bugs permanently
+- Prevents UTC vs IST date mismatch issues in production
 
+---
 
-## How to Run
+## API Endpoints (Production)
 
-### Backend Setup
+- Employees API:  
+  `https://hrms-lite-backend-1-qd60.onrender.com/api/employees/`
+
+- Attendance API:  
+  `https://hrms-lite-backend-1-qd60.onrender.com/api/attendance/`
+
+---
+
+## Running the Project Locally (Optional)
+
+> Local setup is optional and intended only for development or testing.
+
+### Backend (Local)
 
 ```bash
-cd backend
+cd hrms-lite-backend
 
 python -m venv venv
-source venv/bin/activate  
+source venv/bin/activate   
 
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
-
-Backend will run on:
-
-http://127.0.0.1:8000/
-
-Frontend Setup
-
-cd frontend
-npm install
-npm start
-
-http://localhost:3000/# hrms-lite-backend
