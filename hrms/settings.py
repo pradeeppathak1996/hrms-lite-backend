@@ -29,6 +29,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.onrender.com",
     "https://*.vercel.app",
     "https://hrms-lite-frontend-j4rc.vercel.app",
+    "https://hrms-lite-backend-3-0uw5.onrender.com",
 ]
 
 INSTALLED_APPS = [
