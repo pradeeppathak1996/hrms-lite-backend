@@ -107,7 +107,7 @@ Validations are enforced on both frontend and backend to ensure data consistency
 
 ### Timezone Handling
 - Frontend uses browser local time
-- Backend uses Django `timezone.localdate()`
+- Backend uses Django 'timezone.localdate()'
 - Prevents UTC vs IST date mismatch issues in production
 
 ---
