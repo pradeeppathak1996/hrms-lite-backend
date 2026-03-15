@@ -39,5 +39,6 @@ urllib3==2.6.3
 uvicorn==0.40.0
 gunicorn>=22.0.0
 whitenoise==6.4.0
-setuptools
+setuptools==82.0.1
 psycopg2-binary==2.9.11
+dj-database-url
