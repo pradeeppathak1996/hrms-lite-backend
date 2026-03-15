@@ -51,7 +51,7 @@ The project demonstrates a complete **end-to-end full-stack workflow**, covering
 - Django REST Framework
 
 ### Database
-- SQLite (used for assignment and demo scope)
+- Postgresql (used for assignment and demo scope)
 
 ### Deployment
 - Frontend: Vercel
